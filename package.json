@@ -1,15 +1,26 @@
 {
   "name": "string-contractor",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "calculates permutations of expanded / contracted english language strings",
+  "keywords": [],
+  "homepage": "https://github.com/revilossor/string-contractor#readme",
+  "bugs": {
+    "url": "https://github.com/revilossor/string-contractor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revilossor/string-contractor.git"
+  },
+  "license": "ISC",
+  "author": "oliver.ross@hotmail.com",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "lint": "eslint .",
-    "clean": "rm -rf dist",
     "build": "ncc build src/main.ts -m -o dist",
-    "prepare": "npm run build"
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "prepare": "npm run build",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -17,9 +28,6 @@
       "pre-push": "npm t -o"
     }
   },
-  "keywords": [],
-  "author": "oliver.ross@hotmail.com",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
@@ -32,13 +40,5 @@
     "sort-package-json": "^1.46.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
-  },
-  "homepage": "https://github.com/revilossor/string-contractor#readme",
-  "bugs": {
-    "url": "https://github.com/revilossor/string-contractor/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/revilossor/string-contractor.git"
   }
 }
