@@ -1,0 +1,19 @@
+{
+  "name": "string-contractor",
+  "version": "1.0.0",
+  "description": "returns permutations of expanded / contracted english language strings",
+  "main": "dist/index.js",
+  "types" : "dist/index.d.ts"
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "ncc build src/main.ts -m -o dist",
+    "prepare": "npm run build"
+  },
+  "keywords": [],
+  "author": "oliver.ross@hotmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "typescript": "^4.0.3"
+  }
+}
