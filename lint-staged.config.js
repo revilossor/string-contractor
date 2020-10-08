@@ -4,6 +4,6 @@ const doAndAdd = func => files => [
 ]
 
 module.exports = {
-  '**/package.json': doAndAdd(file => `sort-package-json ${file}`),
+  '*package.json': doAndAdd(file => `sort-package-json ${file}`),
   '*.ts': doAndAdd(file => `eslint ${file} --fix`)
 }
