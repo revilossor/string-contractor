@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "test": "jest",
     "lint": "eslint .",
     "clean": "rm -rf dist",
     "build": "ncc build src/main.ts -m -o dist",
@@ -12,20 +13,24 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm t -o"
     }
   },
   "keywords": [],
   "author": "oliver.ross@hotmail.com",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.14",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "@vercel/ncc": "^0.24.1",
     "eslint": "^7.10.0",
     "husky": "^4.3.0",
+    "jest": "^26.5.2",
     "lint-staged": "^10.4.0",
     "sort-package-json": "^1.46.0",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
   "homepage": "https://github.com/revilossor/string-contractor#readme",
