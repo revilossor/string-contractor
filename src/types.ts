@@ -3,21 +3,21 @@ export interface Model {
   long: string;
 }
 
-export enum ContractionType {
+export enum Type {
   Short = 'short',
   Long = 'long'
 }
 
-export interface HitLocation {
+export interface Location {
   start: number;
   end: number;
 }
 
-export interface Hit {
-  type: ContractionType;
+export interface Match {
+  type: Type;
   model: Model;
   target: string;
-  location: HitLocation
+  location: Location
 }
 
-export type State = Array<ContractionType>
+export type State = Array<Type>
