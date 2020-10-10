@@ -1,13 +1,13 @@
 import { Model, Type } from '../src/types'
 import { Matcher } from '../src/Matcher'
 
-describe('Given a contraction model', () => {
+describe('Given some Models', () => {
   const list: Array<Model> = [
     { short: "very small", long: "big" },
     { short: "tiny", long: "quite large" }
   ]
 
-  describe('And a Matcher for the model', () => {
+  describe('And a Matcher for the models', () => {
     let matcher:Matcher
 
     beforeEach(() => {

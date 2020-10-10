@@ -9,3 +9,4 @@ console.log('hello world')
 //  this should be binary states for N bits where N = |hits|
 // interpolate the states: hits[] -> states[] -> string[]
 //  take a hit and a state
+//  expose contract all, expand all, all states

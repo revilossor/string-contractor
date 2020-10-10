@@ -9,9 +9,9 @@ export class Matcher {
 
   private getMatches(target: string, type: Type, model: Model): Array<Match> {
     const length = model[type].length
-    const expression = new RegExp(model[type], 'gi')
-    const results = Array.from(target.matchAll(expression))
-
+    const results = Array.from(
+      target.matchAll(new RegExp(model[type], 'gi'))
+    )
     return results.reduce((
       matches: Array<Match>,
       { index }: RegExpMatchArray
