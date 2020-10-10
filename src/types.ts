@@ -10,6 +10,7 @@ export enum Type {
 
 export interface Location {
   start: number;
+  length: number;
   end: number;
 }
 
@@ -17,7 +18,7 @@ export interface Match {
   type: Type;
   model: Model;
   target: string;
-  location: Location
+  location: Location;
 }
 
 export type State = Array<Type>
