@@ -22,3 +22,4 @@ export interface Match {
 }
 
 export type State = Array<Type>
+export type Matches = Array<Array<Match>>
