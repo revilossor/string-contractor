@@ -12,6 +12,7 @@ export class Matcher {
     const results = Array.from(
       target.matchAll(new RegExp(model[type], 'gi'))
     )
+    
     return results.reduce((
       matches: Array<Match>,
       { index }: RegExpMatchArray
@@ -34,6 +35,7 @@ export class Matcher {
 
   public match(target: string): Array<Match> {
     const getTargetMatches = this.getMatches.bind(this, target)
+
     return this.list.reduce((
       matches: Array<Match>,
       model: Model
