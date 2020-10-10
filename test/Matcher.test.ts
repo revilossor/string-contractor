@@ -7,7 +7,7 @@ describe('Given some Models', () => {
     { short: "tiny", long: "quite large" }
   ]
 
-  describe('And a Matcher for the models', () => {
+  describe('And a Matcher for the Models', () => {
     let matcher:Matcher
 
     beforeEach(() => {
