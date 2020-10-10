@@ -18,7 +18,7 @@ export class Matcher {
         : groups.set(match.location.start, [ match ])
       return groups
     }, new Map<number, Array<Match>>())
-    return Array.from(map.values()).sort((a, b) => {    // TODO test this is sorted...
+    return Array.from(map.values()).sort((a, b) => {
       return a[0].location.start - b[0].location.start
     })
   }
