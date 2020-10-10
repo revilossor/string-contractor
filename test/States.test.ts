@@ -1,4 +1,4 @@
-import { BinaryStates } from '../src/BinaryStates'
+import { States } from '../src/States'
 import { Type } from '../src/types'
 
 describe.each([
@@ -35,9 +35,9 @@ describe.each([
       [Type.Long, Type.Long, Type.Long],
     ]
   ],
-])('When I get the binary states for %s bits', (length, expected) => {
+])('When I get the states for %s matches', (length, expected) => {
   it('Then the correct states are returned', () => {
-    const states = new BinaryStates(length)
+    const states = new States(length)
     expect(states).toHaveLength(expected.length)
     expect(states.items).toEqual(
       expect.arrayContaining(expected)

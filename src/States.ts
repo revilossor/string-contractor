@@ -1,6 +1,6 @@
 import { Type } from "./types";
 
-export class BinaryStates {
+export class States {
 
   public items: Array<Array<Type>> = []
 
