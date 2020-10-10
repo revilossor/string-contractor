@@ -25,7 +25,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "jest -o"
+      "pre-push": "npm t"
     }
   },
   "devDependencies": {
