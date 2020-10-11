@@ -1,6 +1,6 @@
 {
   "name": "string-contractor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "calculates permutations of expanded / contracted english language strings",
   "keywords": [],
   "homepage": "https://github.com/revilossor/string-contractor#readme",
