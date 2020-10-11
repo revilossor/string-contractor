@@ -1,0 +1,6 @@
+export { StringContractor as default } from './StringContractor'
+export * from './types'
+export * from './Interpolator'
+export * from './Matcher'
+export * from './States'
+export * from './contractions'
