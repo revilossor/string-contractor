@@ -18,7 +18,10 @@ export class StringContractor {
   }
 
   public contract(input:string): Array<string> {
-    return [ input ]
+    const matches = this.matcher.match(input)
+    const interpolator = new Interpolator(...matches)
+    const state = new Array(matches.length).fill(Type.Short)
+    return interpolator.interpolate(state)
   }
 
   public all(input:string): Array<string> {

@@ -276,3 +276,36 @@ describe('Given some Models where a term in one is a subset of a term in the oth
     })
   })
 })
+
+describe('Given some Models where terms could overlap for some input strings', () => {
+  const list: Array<Model> = [
+    { short: "I'm", long: "I am" },
+    { short: "ain't", long: "am not" }
+  ]
+
+  describe('And a Matcher for the Models', () => {
+    let matcher:Matcher
+
+    beforeEach(() => {
+      matcher = new Matcher(...list)
+    })
+
+    describe('When I search for matches in a string where matches would overlap', () => {
+      it('Then the match for the shorter term is ignored', () => {
+        const string = "I am not"
+        expect(matcher.match(string)).toEqual([
+          [{
+            type: Type.Long,
+            model: list[1],
+            target: string,
+            location: {
+              start: 2,
+              length: 6,
+              end: 8
+            }
+          }]
+        ])
+      })
+    })
+  })
+})
