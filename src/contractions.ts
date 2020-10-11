@@ -1,5 +1,7 @@
 import { Model } from './types'
 
+// TODO get rid of shott / long, just array
+// everything else have to handle this; then hanlde > 2 things
 export const contractions: Array<Model> = [
   { short: "'aight", long: "alright" },
   { short: "ain't", long: "am not" },
@@ -23,7 +25,6 @@ export const contractions: Array<Model> = [
   { short: "doesn't", long: "does not" },
   { short: "don't", long: "do not" },
   { short: "don't", long: "does not" },
-  { short: "dunno", long: "don't know" },
   { short: "dunno", long: "do not know" },
   { short: "d'ye", long: "do you" },
   { short: "d'ye", long: "did you" },

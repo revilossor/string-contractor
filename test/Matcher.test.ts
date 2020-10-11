@@ -243,3 +243,5 @@ describe('Given some Models that overlap', () => {
     })
   })
 })
+
+// TODO given matches at same index of different lengths prefer longer one

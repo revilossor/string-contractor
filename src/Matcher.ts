@@ -23,6 +23,17 @@ export class Matcher {
     })
   }
 
+  private pruneGroups(matches: Matches): Matches {
+    return matches.map(group => {
+      const sorted = group.sort((a, b) =>
+        b.location.length - a.location.length
+      )
+      return sorted.filter(match =>
+        match.location.length === sorted[0].location.length
+      )
+    })
+  }
+
   private getMatches(target: string, type: Type, model: Model): Array<Match> {
     const length = model[type].length
     const results = Array.from(
@@ -58,6 +69,8 @@ export class Matcher {
       ...getTargetMatches(Type.Short, model),
       ...getTargetMatches(Type.Long, model)
     ], [])
-    return this.groupByIndex(matches)
+    return this.pruneGroups(
+      this.groupByIndex(matches)
+    )
   }
 }
