@@ -188,7 +188,7 @@ describe('Given some Models', () => {
   })
 })
 
-describe('Given some Models that overlap', () => {
+describe('Given some Models with a duplicated term', () => {
   const list: Array<Model> = [
     { short: 'want', long: 'need' },
     { short: "ASAP", long: "as soon as possible" },
@@ -203,7 +203,7 @@ describe('Given some Models that overlap', () => {
     })
 
     describe('When I search for matches in a string', () => {
-      it('Then overlapping matches are grouped', () => {
+      it('Then duplicated terms are grouped', () => {
         const string = "I need it as soon as possible"
         expect(matcher.match(string)).toEqual([
           [{
@@ -244,4 +244,35 @@ describe('Given some Models that overlap', () => {
   })
 })
 
-// TODO given matches at same index of different lengths prefer longer one
+describe('Given some Models where a term in one is a subset of a term in the other', () => {
+  const list: Array<Model> = [
+    { short: "couldn't", long: "could not" },
+    { short: "couldn't've", long: "could not have" }
+  ]
+
+  describe('And a Matcher for the Models', () => {
+    let matcher:Matcher
+
+    beforeEach(() => {
+      matcher = new Matcher(...list)
+    })
+
+    describe('When I search for matches in a string', () => {
+      it('Then the match for the shorter term is ignored', () => {
+        const string = "he couldn't've"
+        expect(matcher.match(string)).toEqual([
+          [{
+            type: Type.Short,
+            model: list[1],
+            target: string,
+            location: {
+              start: 3,
+              length: 11,
+              end: 14
+            }
+          }]
+        ])
+      })
+    })
+  })
+})
