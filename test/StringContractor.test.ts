@@ -132,4 +132,51 @@ describe('Given a StringContractor', () => {
       })
     })
   })
+
+  describe('When I get all versions', () => {
+    describe.each([
+      ["", []],
+      ["hello world", []],
+      [
+        "I'm sorry, it's gone",
+        [
+          "I'm sorry, it's gone",
+          "I'm sorry, it has gone",
+          "I'm sorry, it is gone",
+          "I am sorry, it's gone",
+          "I am sorry, it has gone",
+          "I am sorry, it is gone"
+        ]
+      ],
+      [
+        "I am sorry, it has gone",
+        [
+          "I'm sorry, it's gone",
+          "I'm sorry, it has gone",
+          "I am sorry, it's gone",
+          "I am sorry, it has gone"
+        ]
+      ]
+
+    ])('And the input is "%s"', (input, expected) => {
+      let result: Array<string>
+
+      beforeEach(() => {
+        result = contractor.all(input)
+      })
+
+      it(`Then I receive ${expected.length} results`, () => {
+        expect(result).toHaveLength(expected.length)
+        expect(result).toEqual(expect.arrayContaining(expected))
+      })
+
+      expected.forEach(string => {
+        it(`And I receive "${string}"`, () => {
+          expect(result).toHaveLength(expected.length)
+          expect(result).toEqual(expect.arrayContaining(expected))
+        })
+      })
+    })
+  })
+
 })

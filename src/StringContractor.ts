@@ -2,6 +2,7 @@ import { Interpolator } from "./Interpolator"
 import { Matcher } from "./Matcher"
 import { Type } from "./types"
 import { contractions } from './contractions'
+import { States } from "./States"
 
 export class StringContractor {
   private matcher:Matcher
@@ -25,6 +26,9 @@ export class StringContractor {
   }
 
   public all(input:string): Array<string> {
-    return []
+    const matches = this.matcher.match(input)
+    const interpolator = new Interpolator(...matches)
+    const state = new States(matches.length)
+    return interpolator.interpolate(...state.items)
   }
 }
